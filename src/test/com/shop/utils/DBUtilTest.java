@@ -9,14 +9,7 @@ import static org.junit.Assert.*;
  */
 public class DBUtilTest {
     @Test
-    public void testAdd(){
-
-    }
-    @Test
-    public void testDel() {
-    }
-    @Test
-    public void testGet(){
-
+    public void testConn(){
+        assertNotNull(DBUtil.getConnection());
     }
 }
