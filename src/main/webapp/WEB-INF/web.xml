@@ -24,6 +24,7 @@
     <filter-name>AdminLoginFilter</filter-name>
     <url-pattern>/admin/*</url-pattern>
   </filter-mapping>
+  <!--用户的Servlet-->
   <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>com.shop.servlet.customer.CustomerLogin</servlet-class>
@@ -48,6 +49,48 @@
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AddShopCart</servlet-name>
+    <servlet-class>com.shop.servlet.shopcart.AddShopCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddShopCart</servlet-name>
+    <url-pattern>/AddShopCart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DelShopCart</servlet-name>
+    <servlet-class>com.shop.servlet.shopcart.DelShopCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DelShopCart</servlet-name>
+    <url-pattern>/DelShopCart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditShopCart</servlet-name>
+    <servlet-class>com.shop.servlet.shopcart.EditShopCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditShopCart</servlet-name>
+    <url-pattern>/EditShopCart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>QueryShopCart</servlet-name>
+    <servlet-class>com.shop.servlet.shopcart.QueryShopCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QueryShopCart</servlet-name>
+    <url-pattern>/QueryShopCart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <!--注意这里的url-pattern-->
+    <servlet-name>QueryProduct</servlet-name>
+    <servlet-class>com.shop.servlet.product.QueryProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QueryProduct</servlet-name>
+    <url-pattern>/admin/QueryProduct</url-pattern>
+  </servlet-mapping>
+  <!--管理员的Servlet-->
   <servlet>
     <servlet-name>AdminLogin</servlet-name>
     <servlet-class>com.shop.servlet.admin.AdminLogin</servlet-class>
@@ -144,12 +187,5 @@
     <servlet-name>EditProduct</servlet-name>
     <url-pattern>/admin/EditProduct</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>QueryProduct</servlet-name>
-    <servlet-class>com.shop.servlet.product.QueryProduct</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>QueryProduct</servlet-name>
-    <url-pattern>/admin/QueryProduct</url-pattern>
-  </servlet-mapping>
+
 </web-app>
