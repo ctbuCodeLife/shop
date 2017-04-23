@@ -27,9 +27,9 @@ public class DBUtil {
 //		username = prop.getProperty("username");
 //		password = prop.getProperty("password");
 		driver = "com.mysql.jdbc.Driver";
-		url = "jdbc:mysql://127.0.0.1:3306/shopsystem?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+		url = "jdbc:mysql://127.0.0.1:3306/shop?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 	    username = "root";
-		password = "";//改为自己设置的密码
+		password = "123456";//改为自己设置的密码
 	}
 
 	public DBUtil() {
