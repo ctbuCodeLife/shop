@@ -1,6 +1,10 @@
 <%@ page language="java"
 	import="java.util.*,com.shop.dao.*,com.shop.domain.*"
 	contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.shop.dao.KindDao" %>
+<%@ page import="com.shop.domain.Product" %>
+<%@ page import="com.shop.domain.Kind" %>
+<%@ page import="com.shop.dao.ProductDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="cmn-Hans-CN">
@@ -61,7 +65,7 @@
 					     <c:set var="kId" value="${product.kId}" scope="request">
 					     </c:set>
 					       <%
-					         KindDao  kd = new KindDao();
+					         KindDao kd = new KindDao();
 					         String kId = request.getAttribute("kId").toString();
 					         Kind k = kd.find(Integer.parseInt(kId));
 					         request.setAttribute("kName", k.getkName());

@@ -1,6 +1,8 @@
 <%@ page language="java"
 	import="java.util.*,com.shop.dao.*,com.shop.domain.*,com.shop.utils.*,java.sql.*"
 	contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.shop.domain.Product" %>
+<%@ page import="com.shop.dao.ProductDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
@@ -56,11 +58,12 @@
 				    <div class="item active">
 					        <a href="product_info.jsp?id=${sessionScope.listHotProduct[0].id}"><img src="${listHotProduct[0].pImage}" alt="${product.pName}"></a>
 					</div>
-				    <c:forEach var="index"  begin="1" end="${fn:length(listHotProduct)-1}" step="1">
-				        <div class="item">
-					        <a href="product_info.jsp?id=${sessionScope.listHotProduct[index].id}"><img src="${sessionScope.listHotProduct[index].pImage}" alt="${product.pName}"></a>
-					    </div>
-			        </c:forEach>
+                   <c:forEach var="index"  begin="0" end="${fn:length(listHotProduct)}" step="1">
+                    <div class="item">
+                    <a href="product_info.jsp?id=${sessionScope.listHotProduct[index].id}"><img src="${sessionScope.listHotProduct[index].pImage}" alt="${product.pName}"></a>--%>
+                    </div>
+                   </c:forEach>
+                    
 				</div>
 
 				<!-- Controls -->

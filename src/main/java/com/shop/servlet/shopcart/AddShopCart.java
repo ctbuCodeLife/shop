@@ -1,14 +1,15 @@
 package com.shop.servlet.shopcart;
 
 import com.shop.dao.ProductDao;
+import com.shop.utils.DBUtil;
 import com.shop.domain.Product;
 import com.shop.domain.ShopCart;
-import com.shop.utils.DBUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
@@ -35,8 +36,17 @@ public class AddShopCart extends HttpServlet {
 			p = pd.find(pId);
 			unitPrice = p.getiPrice();
 			totolPrice = unitPrice.multiply(new BigDecimal(Integer.valueOf(count)));
+			//将porduct设置到session中
             request.getSession().setAttribute("product", p);
-			
+			//提示信息的页面
+			String redirectPage = "info.jsp";
+			//自动跳转目录
+			String autoReturnPage ;
+			//获取session
+			HttpSession session = request.getSession();
+			//返回的提示信息
+			String msg;
+
 			int cId = 0;//用户未登录时设置购物车id为0，cId为0
 			if(cid != null || cid.equals("")){
 				//用户已登录
@@ -47,13 +57,13 @@ public class AddShopCart extends HttpServlet {
 				int n = db.doUpdate(sql, params);
 				if(n > 0){
 					//添加购物车成功
-					out.println("<script>alert('添加成功！')</script>");
+					msg = "添加购物车成功,3秒后自动跳转到商品页面.";
 				}else {
 					//添加购物车失败
-					out.println("<script>alert('添加成功！')</script>");
-					
+                    msg = "添加购物车成功,3秒后自动跳转到商品页面.";
 				}
 			}else {
+			    //添加到sesson中
 			    ShopCart sc = new ShopCart();
 			    sc.setId(id);
 			    sc.setcId(cId);
@@ -61,10 +71,13 @@ public class AddShopCart extends HttpServlet {
 			    sc.setCount(count);
 			    sc.setIsBuy(isBuy);
 			    sc.setTotolPrice(totolPrice);
-			    request.getSession().setAttribute("shopcart", sc);
+			    session.setAttribute("shopcart", sc);
+                msg = "添加购物车成功,3秒后自动跳转到商品页面.";
 			}
-			response.sendRedirect("/ShopSystem/cart.jsp");
-			out.close();
+            autoReturnPage = "product_info.jsp?id="+pId;
+			session.setAttribute("msg",msg);
+			session.setAttribute("autoReturn",autoReturnPage);
+			response.sendRedirect(redirectPage);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

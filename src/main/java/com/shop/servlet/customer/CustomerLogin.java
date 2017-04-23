@@ -1,12 +1,11 @@
 package com.shop.servlet.customer;
 
-import com.shop.dao.*;
-import com.shop.domain.*;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import com.shop.dao.CustomerDao;
+import com.shop.domain.Customer;
 import java.io.PrintWriter;
 
 public class CustomerLogin extends HttpServlet{

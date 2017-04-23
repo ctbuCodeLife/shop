@@ -1,5 +1,7 @@
+<%@ page import="com.shop.domain.Product" %>
+<%@ page import="com.shop.dao.ProductDao" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -35,11 +37,7 @@ body {
 	<!--创建整体布局DIV-->
 	<div class="container">
 		<%@ include file="head.jsp"%>
-		<!--
-            	作者：lt1598552894@outlook.com
-            	时间：2016-06-14
-            	描述：物品销售DIV
-            -->
+	
 		<%
            try{
         	   int id = Integer.parseInt(request.getParameter("id"));

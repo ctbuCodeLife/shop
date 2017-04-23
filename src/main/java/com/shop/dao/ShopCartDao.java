@@ -6,7 +6,7 @@ import com.shop.utils.DBUtil;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class ShopCartDao extends DBUtil{
+public class ShopCartDao extends DBUtil {
 
 	/**
 	 * 插入一个product对象

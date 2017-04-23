@@ -1,6 +1,8 @@
 <%@ page language="java"
 	import="java.util.*,com.shop.dao.*,com.shop.domain.*"
 	contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.shop.dao.KindDao" %>
+<%@ page import="com.shop.domain.Kind" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%!ArrayList<Kind> listKind;
@@ -24,9 +26,10 @@
 	<div class="col-md-4" style="padding-top: 30px;">
 		
 		<c:if test="${not empty sessionScope.customer }">
-		  <a href="#">当前用户:${sessionScope.customer.username}</a>
-		  <a href="Logout">注销</a>
-		  <a href="cart.jsp">购物车</a>
+		    <a href="#">当前用户:${sessionScope.customer.username}</a>
+		    <a href="Logout">注销</a>
+            <a href="cart.jsp">购物车</a>
+            <a href="order_list.jsp">订单</a>
 		</c:if>
 		<c:if test="${ empty customer }">
 		    <a href="login.jsp">登录</a> 

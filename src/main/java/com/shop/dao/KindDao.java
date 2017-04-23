@@ -5,7 +5,7 @@ import com.shop.utils.DBUtil;
 
 import java.util.ArrayList;
 
-public class KindDao extends DBUtil{
+public class KindDao extends DBUtil {
 	/**
 	 * 插入一个Kind对象
 	 * 

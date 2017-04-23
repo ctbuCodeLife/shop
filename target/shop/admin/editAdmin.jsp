@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*,com.shop.domain.*,com.shop.dao.*" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.shop.domain.Admin" %>
+<%@ page import="com.shop.dao.AdminDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="cmn-Hans-CN">

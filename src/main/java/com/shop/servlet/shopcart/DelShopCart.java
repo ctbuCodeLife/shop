@@ -26,8 +26,10 @@ public class DelShopCart extends HttpServlet {
 		  }
 		  ShopCartDao scd = new ShopCartDao();
 		  boolean isSucess = scd.delete(id);
+
+		  String msg ="";
 		  if(isSucess == true){
-			  response.sendRedirect("/ShopSystem/cart.jsp");
+			  response.sendRedirect("/shop/cart.jsp");
 			  return;
 		  }else{
 			  
