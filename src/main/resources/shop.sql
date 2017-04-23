@@ -16,7 +16,7 @@ CREATE DATABASE `shop` DEFAULT
 CHARSET utf8;
 USE shop;
 
--- ½¨Á¢customer±í ¿Í»§±í
+-- å»ºç«‹customerè¡¨ å®¢æˆ·è¡¨
 DROP TABLE
 IF EXISTS `customer`;
 
@@ -26,7 +26,7 @@ CREATE TABLE `customer` (
 	`password` VARCHAR (32) NOT NULL,
 	`email` VARCHAR (32) NULL DEFAULT NULL,
 	`tel` CHAR (20) NULL DEFAULT NULL,
-	`sex` enum ('ÄÐ', 'Å®', '±£ÃÜ') NOT NULL DEFAULT '±£ÃÜ',
+	`sex` enum ('ç”·', 'å¥³', 'ä¿å¯†') NOT NULL DEFAULT 'ä¿å¯†',
 	`level` TINYINT (4) NULL DEFAULT 1,
 	`score` INT (11) NULL DEFAULT 0,
 	PRIMARY KEY (`id`),
@@ -34,16 +34,16 @@ CREATE TABLE `customer` (
 ) ENGINE = INNODB AUTO_INCREMENT = 10000 DEFAULT CHARACTER
 SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
--- customer±íµÄ²âÊÔÊý¾Ý
+-- customerè¡¨çš„æµ‹è¯•æ•°æ®
 INSERT INTO `customer`
 VALUES
 	(
 		10000,
-		'ÍõµÂÆ½',
+		'çŽ‹å¾·å¹³',
 		'litao',
 		'litao@shop.com',
 		'15959787657',
-		'ÄÐ',
+		'ç”·',
 		1,
 		50
 	),
@@ -53,7 +53,7 @@ VALUES
 		'test',
 		'litao@shop.com',
 		'15959787657',
-		'ÄÐ',
+		'ç”·',
 		1,
 		50
 	),
@@ -63,12 +63,12 @@ VALUES
 		'haha',
 		'litao@shop.com',
 		'15959787657',
-		'ÄÐ',
+		'ç”·',
 		1,
 		50
 	);
 
--- ½¨Á¢kind±í ÉÌÆ·Àà±ð±í
+-- å»ºç«‹kindè¡¨ å•†å“ç±»åˆ«è¡¨
 DROP TABLE
 IF EXISTS `kind`;
 
@@ -82,12 +82,12 @@ SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 INSERT INTO `kind`
 VALUES
-	(1, 'ÊÖ»úÊýÂë'),
-	(2, 'µçÄÔ°ì¹«'),
-	(3, 'Í¼ÊéÒôÆµ'),
-	(4, '·þ×°');
+	(1, 'æ‰‹æœºæ•°ç '),
+	(2, 'ç”µè„‘åŠžå…¬'),
+	(3, 'å›¾ä¹¦éŸ³é¢‘'),
+	(4, 'æœè£…');
 
--- ½¨Á¢product±í
+-- å»ºç«‹productè¡¨
 DROP TABLE
 IF EXISTS `product`;
 
@@ -102,21 +102,21 @@ CREATE TABLE `product` (
 	`kId` INT NOT NULL,
 	`iPrice` NUMERIC (7, 2) NULL,
 	`mPrice` NUMERIC (7, 2) NULL,
-	`isHot` enum ('ÊÇ', '·ñ') NOT NULL DEFAULT '·ñ',
-	`isShow` enum ('ÊÇ', '·ñ') NOT NULL DEFAULT '·ñ',
+	`isHot` enum ('æ˜¯', 'å¦') NOT NULL DEFAULT 'å¦',
+	`isShow` enum ('æ˜¯', 'å¦') NOT NULL DEFAULT 'å¦',
 	PRIMARY KEY (`id`),
 	CONSTRAINT `fk_kid` FOREIGN KEY (`kId`) REFERENCES `kind` (`id`),
 	UNIQUE KEY `pName` (`pName`)
 ) ENGINE = INNODB AUTO_INCREMENT = 10000 DEFAULT CHARACTER
 SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
--- product±íµÄ²âÊÔÊý¾Ý
+-- productè¡¨çš„æµ‹è¯•æ•°æ®
 INSERT INTO `product`
 VALUES
 	(
 		10000,
-		'Ð¡Ã×note3',
-		'Ð¡Ã×note3È«ÍøÍ¨',
+		'å°ç±³note3',
+		'å°ç±³note3å…¨ç½‘é€š',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -124,13 +124,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'ÊÇ',
-		'·ñ'
+		'æ˜¯',
+		'å¦'
 	),
 	(
 		10001,
-		'÷È×å',
-		'÷ÈÀ¶metal',
+		'é­…æ—',
+		'é­…è“metal',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -138,13 +138,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'ÊÇ',
-		'·ñ'
+		'æ˜¯',
+		'å¦'
 	),
 	(
 		10002,
-		'÷È×åpro6',
-		'÷È×åpro6 Ð¡µÃ´ó²»Ò»Ñù',
+		'é­…æ—pro6',
+		'é­…æ—pro6 å°å¾—å¤§ä¸ä¸€æ ·',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -152,13 +152,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'ÊÇ',
-		'·ñ'
+		'æ˜¯',
+		'å¦'
 	),
 	(
 		10003,
-		'ÊýÂë',
-		'È«³¡ÌØ¼Û',
+		'æ•°ç ',
+		'å…¨åœºç‰¹ä»·',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -166,13 +166,13 @@ VALUES
 		1,
 		9.9,
 		1199,
-		'ÊÇ',
-		'·ñ'
+		'æ˜¯',
+		'å¦'
 	),
 	(
 		10004,
-		'ÈÈÏúÊÖ»ú',
-		'ÈÈÏúÊÖ»úÌáÇ°·Å¼Û',
+		'çƒ­é”€æ‰‹æœº',
+		'çƒ­é”€æ‰‹æœºæå‰æ”¾ä»·',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -180,13 +180,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'ÊÇ',
-		'·ñ'
+		'æ˜¯',
+		'å¦'
 	),
 	(
 		10005,
-		'Ð¡Ã×max',
-		'Ð¡Ã×maxÈ«ÍøÍ¨',
+		'å°ç±³max',
+		'å°ç±³maxå…¨ç½‘é€š',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -194,8 +194,8 @@ VALUES
 		1,
 		1499,
 		1500,
-		'ÊÇ',
-		'·ñ'
+		'æ˜¯',
+		'å¦'
 	),
 	(
 		10006,
@@ -208,8 +208,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10007,
@@ -222,13 +222,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10008,
-		'ÈýÐÇs7',
-		'ÈýÐÇs7',
+		'ä¸‰æ˜Ÿs7',
+		'ä¸‰æ˜Ÿs7',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -236,8 +236,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10009,
@@ -250,8 +250,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10010,
@@ -264,13 +264,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10011,
 		'fsdfddsf',
-		'Èýfdsf7',
+		'ä¸‰fdsf7',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -278,8 +278,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100012,
@@ -292,8 +292,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100013,
@@ -306,13 +306,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100014,
 		'fdsdsf',
-		'ÈýÐÇs7',
+		'ä¸‰æ˜Ÿs7',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -320,8 +320,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100015,
@@ -334,8 +334,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10016,
@@ -348,13 +348,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100017,
 		'fsdffsdsdf',
-		'ÈýÐÇs7',
+		'ä¸‰æ˜Ÿs7',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -362,8 +362,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),(
 		10018,
 		'fsdfsdrsdaf',
@@ -375,8 +375,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10019,
@@ -389,13 +389,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10020,
 		'fdsfvczs',
-		'ÈýÐÇs7',
+		'ä¸‰æ˜Ÿs7',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -403,8 +403,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10021,
@@ -417,8 +417,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10022,
@@ -431,13 +431,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10023,
 		'fsfsadfdfsf',
-		'Èýfdsf7',
+		'ä¸‰fdsf7',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -445,8 +445,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100024,
@@ -459,8 +459,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100025,
@@ -473,13 +473,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100026,
 		'fdfasdsf',
-		'ÈýÐÇs7',
+		'ä¸‰æ˜Ÿs7',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -487,8 +487,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100027,
@@ -501,8 +501,8 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		10028,
@@ -515,13 +515,13 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	),
 (
 		100029,
 		'fsdfsdadf',
-		'ÈýÐÇs7',
+		'ä¸‰æ˜Ÿs7',
 		1000,
 		'2015-12-11 00:00:00',
 		360,
@@ -529,14 +529,14 @@ VALUES
 		1,
 		999,
 		1199,
-		'·ñ',
-		'ÊÇ'
+		'å¦',
+		'æ˜¯'
 	);
 
 DROP TABLE
 IF EXISTS `sales`;
 
--- ½¨Á¢sales±í
+-- å»ºç«‹salesè¡¨
 CREATE TABLE sales (
 	`id` BIGINT AUTO_INCREMENT,
 	`cId` INT NOT NULL,
@@ -553,7 +553,7 @@ CREATE TABLE sales (
 ) ENGINE = INNODB AUTO_INCREMENT = 1000000000 DEFAULT CHARACTER
 SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
--- sales²âÊÔÊý¾Ý
+-- salesæµ‹è¯•æ•°æ®
 INSERT INTO sales
 VALUES
 	(
@@ -564,26 +564,26 @@ VALUES
 		1998,
 		'2015-12-21 00:00:00',
 		'987657898787897',
-		'ÒÑ·¢»õ',
+		'å·²å‘è´§',
 		'2015-12-22 00:00:00'
 	);
 
 DROP TABLE
 IF EXISTS `shopcart`;
 
--- ½¨Á¢shopcart±í
+-- å»ºç«‹shopcartè¡¨
 CREATE TABLE shopcart (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`cId` INT NOT NULL,
 	`pId` INT NOT NULL,
 	`count` INT NULL,
-	`isBuy` enum ('ÊÇ', '·ñ') NOT NULL DEFAULT '·ñ',
+	`isBuy` enum ('æ˜¯', 'å¦') NOT NULL DEFAULT 'å¦',
 	`totalPrice` NUMERIC (7, 2) NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARACTER
 SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
--- ½¨Á¢admin±í ¿Í»§±í
+-- å»ºç«‹adminè¡¨ å®¢æˆ·è¡¨
 DROP TABLE
 IF EXISTS `admin`;
 
@@ -596,7 +596,7 @@ CREATE TABLE `admin` (
 ) ENGINE = INNODB DEFAULT CHARACTER
 SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
--- customer±íµÄ²âÊÔÊý¾Ý
+-- customerè¡¨çš„æµ‹è¯•æ•°æ®
 INSERT INTO `admin`
 VALUES
 	(
