@@ -53,7 +53,6 @@
 							<th>小计</th>
 							<th>操作</th>
 						</tr>
-						${sessionScope.listShopCart}
 						<c:forEach var="shopcart" items="${sessionScope.listShopCart}">
 							<c:set var="pid" value="${shopcart.pId}" />
 							<%

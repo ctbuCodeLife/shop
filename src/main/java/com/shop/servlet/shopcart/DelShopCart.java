@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 /**
@@ -27,13 +29,21 @@ public class DelShopCart extends HttpServlet {
 		  ShopCartDao scd = new ShopCartDao();
 		  boolean isSucess = scd.delete(id);
 
-		  String msg ="";
-		  if(isSucess == true){
-			  response.sendRedirect("/shop/cart.jsp");
-			  return;
-		  }else{
-			  
-		  }
+		   //提示信息的页面
+			String redirectPage = "info.jsp";
+			//自动跳转目录
+			String autoReturnPage ;
+			//获取session
+			HttpSession session = request.getSession();
+			//返回的提示信息
+			String msg="";
+			redirectPage = "cart.jsp";
+			response.sendRedirect(redirectPage);
+//		  if(isSucess == true){
+//			 
+//		  }else{
+//			  
+//		  }
 	  }catch(Exception e) {
 		  e.printStackTrace();
 	  }

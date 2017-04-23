@@ -21,8 +21,7 @@ public class AddShopCart extends HttpServlet {
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
-			PrintWriter out = response.getWriter();
-			int id = 0;
+			response.getWriter();
 			String cid = request.getParameter("cId");
 			int pId = Integer.parseInt(request.getParameter("pId"));
 			int count = Integer.parseInt(request.getParameter("count"));
@@ -45,17 +44,18 @@ public class AddShopCart extends HttpServlet {
 			//获取session
 			HttpSession session = request.getSession();
 			//返回的提示信息
-			String msg;
-
-			int cId = 0;//用户未登录时设置购物车id为0，cId为0
-			if(cid != null || cid.equals("")){
+			String msg="";
+			if(cid == null){
+				 redirectPage = "login.jsp";
+			}
+			if(cid != null && !cid.equals("")){
 				//用户已登录
-				cId = Integer.parseInt(cid);
+				int customerId = Integer.parseInt(cid);
 				DBUtil db = new DBUtil();
 				String sql = "insert into shopcart(cId,pId,count,isBuy,totalPrice) values(?,?,?,?,?)";
-				Object[] params = {cId,pId,count,isBuy,totolPrice};
+				Object[] params = {customerId,pId,count,isBuy,totolPrice};
 				int n = db.doUpdate(sql, params);
-				if(n > 0){
+				if(n == 1){
 					//添加购物车成功
 					msg = "添加购物车成功,3秒后自动跳转到商品页面.";
 				}else {
@@ -64,15 +64,7 @@ public class AddShopCart extends HttpServlet {
 				}
 			}else {
 			    //添加到sesson中
-			    ShopCart sc = new ShopCart();
-			    sc.setId(id);
-			    sc.setcId(cId);
-			    sc.setpId(pId);
-			    sc.setCount(count);
-			    sc.setIsBuy(isBuy);
-			    sc.setTotolPrice(totolPrice);
-			    session.setAttribute("shopcart", sc);
-                msg = "添加购物车成功,3秒后自动跳转到商品页面.";
+			   redirectPage = "login.jsp";
 			}
             autoReturnPage = "product_info.jsp?id="+pId;
 			session.setAttribute("msg",msg);
