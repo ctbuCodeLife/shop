@@ -37,11 +37,7 @@ body {
 	<!--创建整体布局DIV-->
 	<div class="container">
 		<%@ include file="head.jsp"%>
-		<!--
-            	作者：lt1598552894@outlook.com
-            	时间：2016-06-14
-            	描述：物品销售DIV
-            -->
+	
 		<%
            try{
         	   int id = Integer.parseInt(request.getParameter("id"));

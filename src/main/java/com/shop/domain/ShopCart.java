@@ -46,4 +46,15 @@ public class ShopCart {
 		this.totolPrice = totolPrice;
 	}
 
+	@Override
+	public String toString() {
+		return "ShopCart{" +
+				"id=" + id +
+				", cId=" + cId +
+				", pId=" + pId +
+				", count=" + count +
+				", isBuy='" + isBuy + '\'' +
+				", totolPrice=" + totolPrice +
+				'}';
+	}
 }

@@ -42,7 +42,7 @@
 	<div class="container">
 		<div class="row">
 			<div style="margin: 0 auto; margin-top: 10px; width: 950px;">
-				<strong style="font-size: 16px; margin: 5px 0;">订单详情</strong>
+				<strong style="font-size: 16px; margin: 5px 0;">购物车详情</strong>
 				<table class="table table-bordered">
 					<tbody>
 						<tr class="warning">
@@ -54,7 +54,7 @@
 							<th>操作</th>
 						</tr>
 						<c:forEach var="shopcart" items="${sessionScope.listShopCart}">
-							<c:set var="pid" value="${shopcart.pId}" />
+							<c:set var="pid" value="${shopcart.pId}" scope="session"/>
 							<%
 							try{
 							String param = session.getAttribute("pid").toString();
@@ -84,7 +84,8 @@
 								<td width="10%"><input type="text" name="count" value="1"
 									maxlength="4" size="10"></td>
 								<td width="15%"><span class="subtotal">￥${shopcart.totolPrice}元</span></td>
-								<td><a href="DelShopCart?id=${shopcart.id}" class="delete">删除</a></td>
+								<td><a href="DelShopCart?id=${shopcart.id}" class="btn btn-danger">删除</a>
+									<a href="order_info.jsp?id=${sessionScope.product.id}" class="btn btn-success">下单</a></td>
 							</tr>
                  			</c:forEach>
 						</tbody>

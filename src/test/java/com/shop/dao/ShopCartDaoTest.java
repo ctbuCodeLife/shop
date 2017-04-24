@@ -8,6 +8,7 @@ import org.junit.After;
 import java.util.List;
 
 import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertTrue;
 
 
 public class ShopCartDaoTest { 
@@ -37,7 +38,12 @@ public void testInsert() throws Exception {
 */ 
 @Test
 public void testDelete() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    //≤‚ ‘Õ®π˝
+//    ShopCartDao scd = new ShopCartDao();
+//    int id = 8 ;
+//    assertTrue(scd.delete(id));
+
 } 
 
 /** 
@@ -69,9 +75,11 @@ public void testFind() throws Exception {
 public void testFindAll() throws Exception { 
 //TODO: Test goes here...
     ShopCartDao scd = new ShopCartDao();
-    int cid = 10000;
+    int cid = 10005;
     List<ShopCart> list = scd.findAll(cid);
-    System.out.println(list);
+    for (ShopCart shopCart:list) {
+           System.out.println(shopCart);
+    }
     assertNotNull(list);
 } 
 

@@ -58,13 +58,12 @@
 				    <div class="item active">
 					        <a href="product_info.jsp?id=${sessionScope.listHotProduct[0].id}"><img src="${listHotProduct[0].pImage}" alt="${product.pName}"></a>
 					</div>
-					<c:out value="${listHotProduct}"></c:out>
-                   <!-- <%--<c:forEach var="index"  begin="" end="${fn:length(listHotProduct)}" step="1">--%>
-                    <%--<div class="item">--%>
-                    <%--<a href="product_info.jsp?id=${sessionScope.listHotProduct[index].id}"><img src="${sessionScope.listHotProduct[index].pImage}" alt="${product.pName}"></a>--%>
-                    <%--</div>--%>
-                    <%--</c:forEach>--%>
-                    -->
+                   <c:forEach var="index"  begin="0" end="${fn:length(listHotProduct)}" step="1">
+                    <div class="item">
+                    <a href="product_info.jsp?id=${sessionScope.listHotProduct[index].id}"><img src="${sessionScope.listHotProduct[index].pImage}" alt="${product.pName}"></a>--%>
+                    </div>
+                   </c:forEach>
+                    
 				</div>
 
 				<!-- Controls -->
