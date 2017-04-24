@@ -48,8 +48,8 @@ public class AddShopCart extends HttpServlet {
                 boolean flag = scd.exists(cid, pId);
                 if (flag == true) {
                     //存在记录,说明购物车中已添加记录
-                    msg = "您已经添加到购物车了,请删除后重新添加.3秒后自动跳转回商品页面.";
-                    autoReturnPage = "product_info.jsp?id=" + pId;
+                    msg = "您已经添加到购物车了,请删除后重新添加.3秒后自动跳转回购物车页面.";
+                    autoReturnPage = "cart.jsp";
                 } else {
                     //不存在记录,则可以添加购物车
                     int count = Integer.parseInt(request.getParameter("count"));
@@ -76,7 +76,7 @@ public class AddShopCart extends HttpServlet {
 
                     } else {
                         //添加购物车失败
-                        msg = "添加购物车成功,3秒后自动跳转到商品页面.";
+                        msg = "添加购物车失败,3秒后自动跳转到商品页面.";
                     }
                     autoReturnPage = "product_info.jsp?id=" + pId;
                 }

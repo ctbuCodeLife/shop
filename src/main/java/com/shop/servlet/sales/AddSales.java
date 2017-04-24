@@ -43,16 +43,18 @@ public class AddSales extends HttpServlet {
                 //获取请求参数
                 String pidParam = request.getParameter("pid");
                 String countParam = request.getParameter("count");
-
-                if(pidParam == null ||countParam == null){
+                if(pidParam == null ||countParam == null ){
                     //没有输入 跳转到info页面提示
                     msg = "请求参数错误,3秒后自动跳转到首页.";
                     autoReturnPage = "index.jsp";
                 }else{
+//                    //获取购物车id
+//                    int scid = Integer.parseInt(scidParam);
                     //获取商品id
                     int pid = Integer.parseInt(pidParam);
                     //获取商品数量
                     int count = Integer.parseInt(countParam);
+
                     //获取商品
                     ProductDao pd = new ProductDao();
                     Product product = pd.find(pid);
@@ -67,7 +69,7 @@ public class AddSales extends HttpServlet {
                     BigDecimal unitPrice;//商品单价
                     unitPrice = product.getiPrice();
                     totalPrice = unitPrice.multiply(new BigDecimal(Integer.valueOf(count)));
-
+                    System.out.println(totalPrice);
                     Timestamp orderDate = new Timestamp(System.currentTimeMillis());//下单时间
                     String invoiceNO = String.valueOf(System.currentTimeMillis());//订单流水号
                     String orderStatus = "已提交";//订单状态

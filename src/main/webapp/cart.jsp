@@ -78,8 +78,8 @@
                             e.printStackTrace();
                         }
                     %>
-                    <tr class="active">
-                        <from action="Addsales" method="post">
+
+                        <tr class="active">
                             <td width="60" width="40%">
                                 <input type="hidden" name="id" value="${sessionScope.product.id}">
                                 <a href="product_info.jsp?id=${sessionScope.product.id}">
@@ -93,7 +93,8 @@
                                    href="product_info.jsp?id=${sessionScope.product.id}">${sessionScope.product.pName}</a>
                             </td>
                             <td width="20%">
-                                <span id="price">${sessionScope.product.iPrice}</span>元</td>
+                                <span id="price">${sessionScope.product.iPrice}</span>元
+                            </td>
                             <td width="10%">
                                 <input type="hidden" value="${shopcart.count}">
                                 <span>${shopcart.count}</span>
@@ -102,10 +103,10 @@
                                 <span id="total" class="subtotal">￥${shopcart.totolPrice}元</span>
                             <td>
                                 <a href="DelShopCart?id=${shopcart.id}" class="btn btn-danger">删除</a>
-                                <input type="submit" class="btn btn-success" value="下单">
+                                <a class="btn btn-success" href="AddSales?pid=${product.id}&count=${shopcart.count}">下单</a>
                             </td>
-                        </from>
-                    </tr>
+                        </tr>
+
                 </c:forEach>
                 </tbody>
             </table>

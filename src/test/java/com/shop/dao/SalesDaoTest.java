@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertTrue;
 
 
@@ -27,16 +29,21 @@ public void after() throws Exception {
 public void testInsert() throws Exception {
     //插入测试成功
 //
-//    //设置sales对象
-//    Sales sales = new Sales();
-//    sales.setcId(10005);
-//    sales.setpId(10001);
-//    sales.setCount(2);
-//
-//    //插入到sales表
-//    SalesDao sd = new SalesDao();
-//    boolean result = sd.insert(sales);
-//    assertTrue(result);
+    //设置sales对象
+    Sales sales = new Sales();
+    sales.setcId(10005);
+    sales.setpId(10001);
+    sales.setCount(2);
+    BigDecimal unitPrice = new BigDecimal(999.10);
+
+    BigDecimal totalPrice ;
+    totalPrice = unitPrice.multiply(new BigDecimal(Integer.valueOf(2)));
+    System.out.println(999.10*2);
+    sales.setTotalPrice(totalPrice);
+    //插入到sales表
+    SalesDao sd = new SalesDao();
+    boolean result = sd.insert(sales);
+    assertTrue(result);
 } 
 
 /** 
