@@ -104,9 +104,9 @@ public void testFindShow() {
     SalesDao sd = new SalesDao();
     List<Sales> list = sd.findShow(cid);
     System.out.println(list);
-    for (Sales s : list) {
-        System.out.println(s.toString());
-    }
+//    for (Sales s : list) {
+//        System.out.println(s);
+//    }
     assertNotNull(list);
 }
 }

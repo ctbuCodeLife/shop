@@ -90,7 +90,7 @@ public class AddSales extends HttpServlet {
                     if(result == true){
                         //插入成功,要删除购物车
                         msg = "下单成功,3秒后自动跳转到订单页面.";
-                        autoReturnPage = "order_list.jsp";
+                        autoReturnPage = "order_info.jsp";
                         //查找购物车
                         ShopCartDao scd = new ShopCartDao();
                         ShopCart shopCart = scd.find(cid,pid);
