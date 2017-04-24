@@ -71,6 +71,7 @@
                 </tr>
                 <c:forEach var="shopcart" items="${sessionScope.listShopCart}">
                     <c:set var="pid" value="${shopcart.pId}" scope="session"/>
+                    <c:set var="cart" value="${shopcart}" scope="session"/>
                     <%
                         try {
                             String param = session.getAttribute("pid").toString();
@@ -111,7 +112,7 @@
                                 <span id="total" class="subtotal heiget-auto-center">￥${shopcart.totolPrice}元</span>
                             <td width="">
                                 <a href="DelShopCart?id=${shopcart.id}" class="btn btn-danger btn-height-auto-center ">删除</a>
-                                <a class="btn btn-success btn-height-auto-center " href="AddSales?pid=${product.id}&count=${shopcart.count}">下单</a>
+                            <a class="btn btn-success btn-height-auto-center " href="order_info.jsp">下单</a>
                             </td>
                         </tr>
 

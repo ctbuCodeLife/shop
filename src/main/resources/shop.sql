@@ -100,8 +100,8 @@ CREATE TABLE `product` (
 	`pKeepTime` int NULL,
 	`pImage` VARCHAR (255) NULL,
 	`kId` INT NOT NULL,
-	`iPrice` NUMERIC (7, 2) NULL,
-	`mPrice` NUMERIC (7, 2) NULL,
+	`iPrice` int default 0,
+	`mPrice` int default 0,
 	`isHot` enum ('是', '否') NOT NULL DEFAULT '否',
 	`isShow` enum ('是', '否') NOT NULL DEFAULT '否',
 	PRIMARY KEY (`id`),
@@ -122,8 +122,8 @@ VALUES
 		360,
 		'img/hot/xiaomi.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'是',
 		'否'
 	),
@@ -136,8 +136,8 @@ VALUES
 		360,
 		'img/hot/meizu.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'是',
 		'否'
 	),
@@ -150,8 +150,8 @@ VALUES
 		360,
 		'img/hot/meizu2.png',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'是',
 		'否'
 	),
@@ -165,7 +165,7 @@ VALUES
 		'img/hot/shuma.jpg',
 		1,
 		9.9,
-		1199,
+		1200,
 		'是',
 		'否'
 	),
@@ -178,8 +178,8 @@ VALUES
 		360,
 		'img/hot/shuma2.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'是',
 		'否'
 	),
@@ -206,8 +206,8 @@ VALUES
 		360,
 		'img/show/ipad.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -220,8 +220,8 @@ VALUES
 		360,
 		'img/show/oppor7.png',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -234,8 +234,8 @@ VALUES
 		360,
 		'img/show/sanxing.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -248,8 +248,8 @@ VALUES
 		360,
 		'img/show/ipad.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -262,8 +262,8 @@ VALUES
 		360,
 		'img/show/oppor7.png',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -276,8 +276,8 @@ VALUES
 		360,
 		'img/show/sanxing.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -290,8 +290,8 @@ VALUES
 		360,
 		'img/show/ipad.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -304,8 +304,8 @@ VALUES
 		360,
 		'img/show/oppor7.png',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -318,8 +318,8 @@ VALUES
 		360,
 		'img/show/sanxing.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -332,8 +332,8 @@ VALUES
 		360,
 		'img/show/ipad.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -346,8 +346,8 @@ VALUES
 		360,
 		'img/show/oppor7.png',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -360,8 +360,8 @@ VALUES
 		360,
 		'img/show/sanxing.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),(
@@ -373,8 +373,8 @@ VALUES
 		360,
 		'img/show/ipad.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -387,8 +387,8 @@ VALUES
 		360,
 		'img/show/oppor7.png',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -401,8 +401,8 @@ VALUES
 		360,
 		'img/show/sanxing.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -415,8 +415,8 @@ VALUES
 		360,
 		'img/show/ipad.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -429,8 +429,8 @@ VALUES
 		360,
 		'img/show/oppor7.png',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -443,8 +443,8 @@ VALUES
 		360,
 		'img/show/sanxing.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -457,8 +457,8 @@ VALUES
 		360,
 		'img/show/ipad.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -471,8 +471,8 @@ VALUES
 		360,
 		'img/show/oppor7.png',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -485,8 +485,8 @@ VALUES
 		360,
 		'img/show/sanxing.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -499,8 +499,8 @@ VALUES
 		360,
 		'img/show/ipad.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -513,8 +513,8 @@ VALUES
 		360,
 		'img/show/oppor7.png',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	),
@@ -527,8 +527,8 @@ VALUES
 		360,
 		'img/show/sanxing.jpg',
 		1,
-		999,
-		1199,
+		1000,
+		1200,
 		'否',
 		'是'
 	);
@@ -542,7 +542,7 @@ CREATE TABLE sales (
 	`cId` INT NOT NULL,
 	`pId` INT NOT NULL,
 	`count` INT NULL,
-	`totalPrice` NUMERIC (12, 4) NULL UNIQUE,
+	`totalPrice`int default 0,
 	`orderDate` DATETIME NULL,
 	`invoiceNo` CHAR (15) NULL,
 	`orderStatus` VARCHAR (10) NULL,
@@ -552,21 +552,6 @@ CREATE TABLE sales (
 	CONSTRAINT `fk_pid` FOREIGN KEY (`pId`) REFERENCES `product` (`id`)
 ) ENGINE = INNODB AUTO_INCREMENT = 1000000000 DEFAULT CHARACTER
 SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
-
--- sales测试数据
-INSERT INTO sales
-VALUES
-	(
-		1000000000,
-		10000,
-		10000,
-		2,
-		1998,
-		'2015-12-21 00:00:00',
-		'987657898787897',
-		'已发货',
-		'2015-12-22 00:00:00'
-	);
 
 DROP TABLE
 IF EXISTS `shopcart`;
@@ -578,7 +563,7 @@ CREATE TABLE shopcart (
 	`pId` INT NOT NULL,
 	`count` INT NULL,
 	`isBuy` enum ('是', '否') NOT NULL DEFAULT '否',
-	`totalPrice` NUMERIC (7, 2) NULL,
+	`totalPrice` int NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARACTER
 SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;

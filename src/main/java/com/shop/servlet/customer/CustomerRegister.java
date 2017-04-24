@@ -48,7 +48,7 @@ public class CustomerRegister extends HttpServlet {
 				autoReturnPage = "login.jsp";
 			} else {
 				//注册失败,该用户已存在
-				msg = "注册失败,3秒后自动跳转到注册页面";
+				msg = "注册失败,用户名已存在!!3秒后自动跳转到注册页面";
 				autoReturnPage = "register.jsp";
 			}
 			session.setAttribute("msg",msg);

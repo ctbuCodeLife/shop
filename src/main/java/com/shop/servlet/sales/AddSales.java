@@ -87,8 +87,7 @@ public class AddSales extends HttpServlet {
                     if(result == true){
                         //插入成功,要删除购物车
                         msg = "下单成功,3秒后自动跳转到订单页面.";
-
-                        autoReturnPage = "order_info.jsp";
+                        autoReturnPage = "order_list.jsp";
                         //查找购物车
                         ShopCartDao scd = new ShopCartDao();
                         ShopCart shopCart = scd.find(cid,pid);
@@ -96,7 +95,7 @@ public class AddSales extends HttpServlet {
                     }else {
                         //插入失败
                         msg = "提交失败,3秒后自动跳转到购物车页面.";
-                        autoReturnPage = "cart.jsp";
+                        autoReturnPage = "order_info.jsp";
                     }
 
                 }
