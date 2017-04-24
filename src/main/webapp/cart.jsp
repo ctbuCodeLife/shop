@@ -28,6 +28,14 @@
             color: #fff;
             font-weight: bolder;
         }
+        .heiget-auto-center{
+            line-height: 80px;
+            vertical-align: middle;
+        }
+        .btn-height-auto-center{
+            position: relative;
+            top: 23px;
+        }
     </style>
 </head>
 <body>
@@ -49,7 +57,7 @@
 <!-- 主体DIV  -->
 <div class="container">
     <div class="row">
-        <div style="margin: 0 auto; margin-top: 10px; width: 950px;">
+        <div style="margin: 0 auto; margin-top: 10px; width: 1150px;">
             <strong style="font-size: 16px; margin: 5px 0;">购物车详情</strong>
             <table class="table table-bordered">
                 <tbody>
@@ -80,30 +88,30 @@
                     %>
 
                         <tr class="active">
-                            <td width="60" width="40%">
+                            <td width="40%">
                                 <input type="hidden" name="id" value="${sessionScope.product.id}">
-                                <a href="product_info.jsp?id=${sessionScope.product.id}">
+                                <a  class="heiget-auto-center" href="product_info.jsp?id=${sessionScope.product.id}">
                                     <img src="${sessionScope.product.pImage}"
                                          alt="${sessionScope.product.pName}" width="auto" height="85px"
                                          style="display: inline-block;">
                                 </a>
                             </td>
-                            <td width="30%">
-                                <a target="_blank"
+                            <td width="15%">
+                                <a class="heiget-auto-center" target="_blank"
                                    href="product_info.jsp?id=${sessionScope.product.id}">${sessionScope.product.pName}</a>
                             </td>
-                            <td width="20%">
-                                <span id="price">${sessionScope.product.iPrice}</span>元
+                            <td width="10%">
+                                <span id="price" class="heiget-auto-center">${sessionScope.product.iPrice}</span>元
                             </td>
                             <td width="10%">
                                 <input type="hidden" value="${shopcart.count}">
-                                <span>${shopcart.count}</span>
+                                <span class="heiget-auto-center">${shopcart.count}</span>
                             </td>
-                            <td width="15%">
-                                <span id="total" class="subtotal">￥${shopcart.totolPrice}元</span>
-                            <td>
-                                <a href="DelShopCart?id=${shopcart.id}" class="btn btn-danger">删除</a>
-                                <a class="btn btn-success" href="AddSales?pid=${product.id}&count=${shopcart.count}">下单</a>
+                            <td width="10%">
+                                <span id="total" class="subtotal heiget-auto-center">￥${shopcart.totolPrice}元</span>
+                            <td width="">
+                                <a href="DelShopCart?id=${shopcart.id}" class="btn btn-danger btn-height-auto-center ">删除</a>
+                                <a class="btn btn-success btn-height-auto-center " href="AddSales?pid=${product.id}&count=${shopcart.count}">下单</a>
                             </td>
                         </tr>
 
