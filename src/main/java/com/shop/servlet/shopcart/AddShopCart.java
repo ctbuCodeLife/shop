@@ -40,13 +40,14 @@ public class AddShopCart extends HttpServlet {
 			//提示信息的页面
 			String redirectPage = "info.jsp";
 			//自动跳转目录
-			String autoReturnPage ;
+			String autoReturnPage ="";
 			//获取session
 			HttpSession session = request.getSession();
 			//返回的提示信息
 			String msg="";
 			if(cid == null){
-				 redirectPage = "login.jsp";
+				 msg="您还没有登录沃,请登录后在添加购物车吧.";
+				 autoReturnPage = "login.jsp";
 			}
 			if(cid != null && !cid.equals("")){
 				//用户已登录
@@ -58,15 +59,13 @@ public class AddShopCart extends HttpServlet {
 				if(n == 1){
 					//添加购物车成功
 					msg = "添加购物车成功,3秒后自动跳转到商品页面.";
+
 				}else {
 					//添加购物车失败
                     msg = "添加购物车成功,3秒后自动跳转到商品页面.";
 				}
-			}else {
-			    //添加到sesson中
-			   redirectPage = "login.jsp";
+                autoReturnPage = "product_info.jsp?id="+pId;
 			}
-            autoReturnPage = "product_info.jsp?id="+pId;
 			session.setAttribute("msg",msg);
 			session.setAttribute("autoReturn",autoReturnPage);
 			response.sendRedirect(redirectPage);

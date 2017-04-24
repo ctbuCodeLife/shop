@@ -1,6 +1,12 @@
 package com.shop.filter;
 
+import com.sun.deploy.net.HttpRequest;
+import com.sun.deploy.net.HttpResponse;
+
 import javax.servlet.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class CharSetFilter implements Filter {
@@ -12,7 +18,12 @@ public class CharSetFilter implements Filter {
 	public void destroy() {
 	}
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		request.setCharacterEncoding(myEncoding);
+		HttpServletRequest req = (HttpServletRequest)request;
+		HttpServletResponse resp = (HttpServletResponse)response;
+
+    	req.setCharacterEncoding(myEncoding);
+		resp.setCharacterEncoding(myEncoding);
+
 		chain.doFilter(request, response);
 	}
 
