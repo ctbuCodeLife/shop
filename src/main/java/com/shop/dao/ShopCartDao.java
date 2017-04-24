@@ -11,7 +11,7 @@ public class ShopCartDao extends DBUtil {
 	/**
 	 * 插入一个product对象
 	 * 
-	 * @param cust
+	 * @param
 	 * @return
 	 */
 	public boolean insert(ShopCart sc) {
@@ -55,7 +55,7 @@ public class ShopCartDao extends DBUtil {
 	/**
 	 * 修改购物车商品
 	 * 
-	 * @param p
+	 * @param
 	 * @return
 	 */
 	public boolean update(ShopCart sc) {
@@ -148,5 +148,26 @@ public class ShopCartDao extends DBUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	/**
+	 * 查询购物车商品是否存在
+	 * @param cid 用户id
+	 * @param pid 商品id
+	 * @return boolean 存在返回true,不存在返回false
+	 */
+
+	public boolean exists(int cid,int pid){
+		try{
+			String sql = "select id from shopcart where cid=? and pid=?";
+			Object[] params = {cid,pid};
+			ResultSet rs = this.doQuery(sql,params);
+			if(rs.next()){
+				//查找到了,说明添加到购物车
+				return true;
+			}
+		}catch(Exception e ) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }
