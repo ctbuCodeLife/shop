@@ -1,14 +1,10 @@
-package com.shop.dao;
+package com.shop.dao; 
 
-import com.shop.domain.ShopCart;
-import org.junit.Test;
+import org.junit.Test; 
 import org.junit.Before; 
 import org.junit.After;
 
-import java.util.List;
-
-import static junit.framework.TestCase.assertNotNull;
-import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 
 public class ShopCartDaoTest { 
@@ -38,12 +34,7 @@ public void testInsert() throws Exception {
 */ 
 @Test
 public void testDelete() throws Exception { 
-//TODO: Test goes here...
-    //测试通过
-//    ShopCartDao scd = new ShopCartDao();
-//    int id = 8 ;
-//    assertTrue(scd.delete(id));
-
+//TODO: Test goes here... 
 } 
 
 /** 
@@ -73,14 +64,7 @@ public void testFind() throws Exception {
 */ 
 @Test
 public void testFindAll() throws Exception { 
-//TODO: Test goes here...
-    ShopCartDao scd = new ShopCartDao();
-    int cid = 10005;
-    List<ShopCart> list = scd.findAll(cid);
-    for (ShopCart shopCart:list) {
-           System.out.println(shopCart);
-    }
-    assertNotNull(list);
+//TODO: Test goes here... 
 } 
 
 /** 
@@ -91,6 +75,22 @@ public void testFindAll() throws Exception {
 @Test
 public void testGetShopCart() throws Exception { 
 //TODO: Test goes here... 
+} 
+
+/** 
+* 
+* Method: exists(int cid, int pid) 
+* 
+*/ 
+@Test
+public void testExists() throws Exception { 
+//TODO: Test goes here...
+    //测试通过
+//    int cid = 10005;
+//    int pid = 10000;
+//    ShopCartDao scd = new ShopCartDao();
+//    boolean result = scd.exists(cid,pid);
+//    assertNotNull(result);
 } 
 
 
