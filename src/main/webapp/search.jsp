@@ -1,3 +1,6 @@
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="com.alibaba.fastjson.JSON" %>
+<%@ page import="com.alibaba.fastjson.serializer.SerializerFeature" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,7 +8,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>订单信息</title>
+    <title>搜索页面</title>
     <!--根据设备的宽度调整缩放比例   -->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--引入bootstrap的CSS文件 -->
@@ -14,9 +17,9 @@
     <!--引入jquery的js文件-->
     <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
     <style type="text/css">
         .center-block{
-            border: 1px solid red;
             width: 170px;
         }
     </style>
@@ -27,17 +30,17 @@
 <!--创建查询DIV-->
 <div class="container">
     <div class="row" style="width:1210px;">
-            <div id="allsearch" class="center-block" v-for="product in mydata">
-                <a href="product_info.jsp?id=${product.id}">
-                    <img src="${product.pImage}" alt="${product.pName}"	width="170" height="170" style="display: inline-block;">
-                </a>
-                <p>
-                    <a href="product_info.jsp?id=${product.id}" style='color:green'>${product.pName}</a>
-                </p>
-                <p>
-                    <font color="#FF0000">商城价：&yen;${product.iPrice}</font>
-                </p>
-            </div>
+        <div  id="allsearch" class="center-block" >
+                <p id="pId" style="display: none">{{id}}</p>
+                <img id="img" src="" alt="" width="170" height="170" style="display: inline-block;">
+            </a>
+            <p>
+                <a  href="JavaScript:;" onclick="location ='product_info.jsp?id='+document.getElementById('pId').innerHTML;">{{pName}}</a>
+            </p>
+            <p>
+                <font color="#FF0000">商城价：&yen;{{iPrice}}</font>
+            </p>
+        </div>
     </div>
 </div>
 <!--创建footDIV-->
@@ -60,29 +63,45 @@
     </center>
 </div>
 <script type="text/javascript">
-    function  searchByName(){
-        var name = $("#searchText").val();
-        alert(1);
-        alert(name);
+
+    window.onload = function () {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if(url.indexOf("?") != -1)
+        {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++)
+            {
+                theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+            }
+        }
+        div = document.getElementById("allsearch");
+        var name = theRequest.name;
         $.ajax({
             type:"GET",
             url:"/shop/searchByName",
             data:{name:name},
             dataType:"json",
             success:function (data) {
-                alert(2);
-                var vm = new Vue({
-                    el:"#allsearch",
-                    data:{
-                        mydata:data
-                    }
-                });
+                if(data !== ""){
+                    //找到了商品
+                    var vm = new Vue({
+                        el:"#allsearch",
+                        data:data
+                    });
+                    $("#img").attr("src", data.pImage);
+                    $("#allserarch").show();
+                }else{
+                    document.getElementById("allsearch").style.display="none";
+                    alert("没有该商品");
+                }
             },
             error:function () {
                 alert("没有该商品");
             }
         });
-        alert(3);
+
     }
 </script>
 </body>

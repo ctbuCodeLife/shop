@@ -7,7 +7,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <%!ArrayList<Kind> listKind;
 %>
-	<% 
+	<%
   KindDao kd = new KindDao();
   listKind = kd.findAll();
   session.setAttribute("listKind", listKind);
@@ -61,12 +61,12 @@
 				      <li><a href="product_list_by_kid.jsp?kid=${kind.id}">${kind.kName}</a></li>
 				    </c:forEach>
 				</ul>
-				<form class="navbar-form navbar-right" role="search">
+				<div class="navbar-form navbar-right" role="search">
 					<div class="form-group">
 						<input id="searchText" type="text" class="form-control" placeholder="Search">
 					</div>
-					<button type="submit" class="btn btn-default" onclick="searchByName()">搜索</button>
-				</form>
+					<a href="JavaScript:;" onclick="location ='search.jsp?name='+document.getElementById('searchText').value;"><button type="submit" class="btn btn-default">搜索</button></a>
+				</div>
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
