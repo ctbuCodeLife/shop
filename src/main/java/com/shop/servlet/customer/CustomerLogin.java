@@ -15,24 +15,31 @@ public class CustomerLogin extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	public void doGet(HttpServletRequest request,HttpServletResponse response){
 		try{
-	    PrintWriter out = response.getWriter();
 		String username=request.getParameter("username").trim();
 		String password=request.getParameter("password").trim();
 		
 		CustomerDao cd = new CustomerDao();
 		
 		Customer c = cd.find(username, password);
+        //提示信息的页面
+        String redirectPage = "info.jsp";
+        //自动跳转目录
+        String autoReturnPage ="";
+        //获取session
+        HttpSession session = request.getSession();
+        //返回的提示信息
+        String msg="";
 		if(c != null ){
-		  HttpSession session = request.getSession();
 		  session.setAttribute("customer", c);
-		  response.sendRedirect("index.jsp");
+		  redirectPage = "index.jsp";
 		}else{
 			//用户名密码不匹配
-			out.println("<script>alert(用户名密码不匹配！);</script>");
-			 response.sendRedirect("login.jsp");
+            msg = "用户名和密码不匹配";
+            autoReturnPage = "login.jsp";
 		}
-		out.close();
-		
+		session.setAttribute("msg",msg);
+		session.setAttribute("autoReturn",autoReturnPage);
+		response.sendRedirect(redirectPage);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

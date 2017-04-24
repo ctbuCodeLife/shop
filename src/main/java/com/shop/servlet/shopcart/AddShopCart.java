@@ -46,7 +46,7 @@ public class AddShopCart extends HttpServlet {
 			//返回的提示信息
 			String msg="";
 			if(cid == null){
-				 msg="您还没有登录沃,请登录后在添加购物车吧.";
+				 msg="您还没有登录沃,请登录后再添加购物车吧.";
 				 autoReturnPage = "login.jsp";
 			}
 			if(cid != null && !cid.equals("")){

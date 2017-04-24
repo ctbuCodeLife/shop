@@ -22,6 +22,13 @@
 <!--引入jquery的js文件-->
 <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <style>
+        .count-btn{
+            background: red;
+            color: #fff;
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
 	<%!ArrayList<ShopCart> listShopCart;
@@ -80,10 +87,12 @@
 								<td width="30%">
 								  <a target="_blank" href="product_info.jsp?id=${sessionScope.product.id}">${sessionScope.product.pName}</a>
 								</td>
-								<td width="20%">${sessionScope.product.iPrice}元</td>
-								<td width="10%"><input type="text" name="count" value="1"
-									maxlength="4" size="10"></td>
-								<td width="15%"><span class="subtotal">￥${shopcart.totolPrice}元</span></td>
+								<td width="20%"><span id="price">${sessionScope.product.iPrice}</span>元</td>
+								<td width="10%">
+                                  <span>${shopcart.count}</span>
+                                </td>
+								<td width="15%">
+                                    <span id="total" class="subtotal">￥${shopcart.totolPrice}元</span>
 								<td><a href="DelShopCart?id=${shopcart.id}" class="btn btn-danger">删除</a>
 									<a href="order_info.jsp?id=${sessionScope.product.id}" class="btn btn-success">下单</a></td>
 							</tr>

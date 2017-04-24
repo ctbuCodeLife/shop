@@ -30,6 +30,11 @@ body {
 	width: 100%;
 	height: 300px;
 }
+	.count-btn{
+	    background: red;
+    color: #fff;
+    font-weight: bolder;
+	}
 </style>
 </head>
 
@@ -103,15 +108,16 @@ body {
 								    <input name="cId" type="hidden" value="${sessionScope.customer.id}"/>
 								    <input name="pId" type="hidden" value="${product.id}"/>
 									<div style="border-bottom: 1px solid #faeac7; margin-top: 20px; padding-left: 10px;">
-										购买数量: <input id="count" name="count" value="1"
+										购买数量:
+										<a id="subCount" class="btn count-btn ">-</a>
+										<input id="count" name="count" value="1"
 											maxlength="4" size="10" type="text">
+										<a id="addCount" class="btn count-btn">+</a>
 									</div>
                                     <input name="isBuy" type="hidden" value="否"/>
+
 									<div style="margin: 20px 0 10px 0;; text-align: center;">
-											<input
-											style="background: url('./images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0); height: 36px; width: 127px;"
-											value="加入购物车" type="submit">
-										<span>&nbsp;收藏商品</span>
+										<input  class="btn btn-success btn-lg" value="加入购物车" type="submit">
 									</div>
 								</form>
 							</div>
@@ -187,5 +193,25 @@ body {
 		<%@ include file="foot.jsp"%>
 	</div>
 </body>
+<script>
+	$("#addCount").click(function(){
+	    var countEle = document.getElementById("count");
+	    var countValue = countEle.value;
+	    if(countValue >= 99 ){
+            countEle.value = 99;
+		}else{
+            countEle.value = parseInt(countValue)+1;
+        }
+	});
+    $("#subCount").click(function(){
+        var countEle = document.getElementById("count");
+        var countValue = countEle.value;
+        if(countValue <= 1 ){
+            countEle.value = 1;
+        }else{
+            countEle.value = parseInt(countValue)-1;
+		}
 
+    });
+</script>
 </html>
