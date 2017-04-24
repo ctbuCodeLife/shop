@@ -1,5 +1,6 @@
 package com.shop.dao;
 
+import com.shop.domain.Sales;
 import com.shop.domain.ShopCart;
 import com.shop.utils.DBUtil;
 
@@ -150,12 +151,11 @@ public class ShopCartDao extends DBUtil {
 		return null;
 	}
 	/**
-	 * 查询购物车商品是否存在
+	 * 查询购物车id
 	 * @param cid 用户id
 	 * @param pid 商品id
 	 * @return boolean 存在返回true,不存在返回false
 	 */
-
 	public boolean exists(int cid,int pid){
 		try{
 			String sql = "select id from shopcart where cid=? and pid=?";
@@ -170,4 +170,31 @@ public class ShopCartDao extends DBUtil {
 		}
 		return false;
 	}
+    /**
+     * 查询购物车
+     * @param cid 用户id
+     * @param pid 商品id
+     * @return ShopCart 存在返回购物车,不存在返回null
+     */
+    public ShopCart find(int cid,int pid){
+        try{
+            String sql = "select id,count,isBuy,totalPrice from shopcart where cid=? and pid=?";
+            Object[] params = {cid,pid};
+            ResultSet rs = this.doQuery(sql,params);
+            if(rs.next()){
+                //查找到了,说明添加到购物车
+                ShopCart shopCart = new ShopCart();
+                shopCart.setId(rs.getInt(1));
+                shopCart.setcId(cid);
+                shopCart.setpId(pid);
+                shopCart.setCount(rs.getInt(2));
+                shopCart.setIsBuy(rs.getString(3));
+                shopCart.setTotolPrice(rs.getBigDecimal(4));
+                return shopCart;
+            }
+        }catch(Exception e ) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
