@@ -157,6 +157,37 @@ public class SalesDao extends DBUtil {
         return null;
     }
     /**
+     * 查找某用户id的所有购物车
+     *
+     * @return
+     */
+    public ArrayList<Sales> findAll() {
+        String sql = "select * from sales order by id";
+        ArrayList<Sales> list = new ArrayList<Sales>();
+        try {
+            this.rs = this.doQuery(sql);
+            while (rs.next()) {
+                Sales sales = new Sales();
+                sales.setId(rs.getInt(1));
+                sales.setcId(rs.getInt(2));
+                sales.setpId(rs.getInt(3));
+                sales.setCount(rs.getInt(4));
+                sales.setTotalPrice(rs.getInt(5));
+                sales.setOrderDate(rs.getTimestamp(6));
+                sales.setInvoiceNo(rs.getString(7));
+                sales.setOrderStatus(rs.getString(8));
+                sales.setDelivDate(rs.getTimestamp(9));
+                list.add( getSales(rs));
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.close();
+        }
+        return null;
+    }
+    /**
      * 查找用户所有订单
      *
      * @return

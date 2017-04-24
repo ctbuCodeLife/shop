@@ -34,6 +34,19 @@ function delProduct(id) {
 	}
 }
 
+function addCustomer() {
+    window.location = "addCustomer.jsp";
+}
+function editCustomer(id) {
+    window.location = "editCustomer.jsp?id=" + id;
+}
+function delCustomer(id) {
+    if (window.confirm("您确定要删除吗？删除之后不可以恢复哦！！！")) {
+        window.location = "DelCustomer?id=" + id;
+    }
+}
+
+
 $(function(){
 	
 	$('#switch_qlogin').click(function(){

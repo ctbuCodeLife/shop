@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.After;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
@@ -87,7 +88,12 @@ public void testFind() throws Exception {
 */ 
 @Test
 public void testFindAll() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    SalesDao sd = new SalesDao();
+    List<Sales> list = new ArrayList<Sales>();
+    list = sd.findAll();
+    System.out.println(list);
+
 } 
 
 /** 
