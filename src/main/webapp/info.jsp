@@ -15,8 +15,9 @@
         如果您的浏览器没有自动跳转，<a href="${sessionScope.autoReturn}">请点击这里</a>
     </p>
 </div>
-
+<footer class="navbar-fixed-bottom">
 <%@include file="foot.jsp" %>
+</footer>
 </body>
 <script type="text/javascript">
     function jumpurl(){
