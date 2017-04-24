@@ -3,9 +3,8 @@ package com.shop.servlet.shopcart;
 import com.shop.dao.ProductDao;
 import com.shop.dao.ShopCartDao;
 import com.shop.domain.Customer;
-import com.shop.utils.DBUtil;
 import com.shop.domain.Product;
-import com.shop.domain.ShopCart;
+import com.shop.utils.DBUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 
 public class AddShopCart extends HttpServlet {
@@ -56,13 +54,15 @@ public class AddShopCart extends HttpServlet {
                     String isBuy = request.getParameter("isBuy");
 
                     //计算总价
-                    BigDecimal totolPrice;
-                    BigDecimal unitPrice;//商品单价
+//                    BigDecimal totolPrice;
+//                    BigDecimal unitPrice;//商品单价
+                    Double totolPrice = 0.0;
+                    Double unitPrice = 0.0;
                     ProductDao pd = new ProductDao();
                     Product p = new Product();
                     p = pd.find(pId);
                     unitPrice = p.getiPrice();
-                    totolPrice = unitPrice.multiply(new BigDecimal(Integer.valueOf(count)));
+                    totolPrice = unitPrice * count;
                     //将porduct设置到session中
                     request.getSession().setAttribute("product", p);
 

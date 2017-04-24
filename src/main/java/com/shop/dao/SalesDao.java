@@ -1,7 +1,6 @@
 package com.shop.dao;
 
 import com.shop.domain.Sales;
-import com.shop.domain.Sales;
 import com.shop.utils.DBUtil;
 
 import java.sql.ResultSet;
@@ -27,7 +26,8 @@ public class SalesDao extends DBUtil {
                 sales.getOrderDate(),
                 sales.getInvoiceNo(),
                 sales.getOrderStatus(),
-        };try {
+        };
+        try {
             int n = this.doUpdate(sql, params);
             if (n > 0) {
                 return true;
@@ -152,7 +152,7 @@ public class SalesDao extends DBUtil {
                 sales.setcId(rs.getInt(1));
                 sales.setpId(rs.getInt(2));
                 sales.setCount(rs.getInt(3));
-                sales.setTotalPrice(rs.getBigDecimal(4));
+                sales.setTotalPrice(rs.getDouble(4));
                 sales.setOrderDate(rs.getTimestamp(5));
                 sales.setInvoiceNo(rs.getString(6));
                 sales.setOrderStatus(rs.getString(7));
@@ -180,7 +180,7 @@ public class SalesDao extends DBUtil {
                 sales.setcId(rs.getInt(1));
                 sales.setpId(rs.getInt(2));
                 sales.setCount(rs.getInt(3));
-                sales.setTotalPrice(rs.getBigDecimal(4));
+                sales.setTotalPrice(rs.getDouble(4));
                 sales.setOrderDate(rs.getTimestamp(5));
                 sales.setInvoiceNo(rs.getString(6));
                 sales.setOrderStatus(rs.getString(7));

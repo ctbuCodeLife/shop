@@ -49,17 +49,17 @@ body {
 
 		<div class="row" style="width:1210px;margin:0 auto;">
             <c:forEach var="product" items="${sessionScope.listShowProduct}">
-			<div class="col-md-2">
-				<a href="product_info.jsp?id=${product.id}"> 
-				    <img src="${product.pImage}" alt="${product.pName}"	width="170" height="170" style="display: inline-block;">
-				</a>
-				<p>
-					<a href="product_info.jsp?id=${product.id}" style='color:green'>${product.pName}</a>
-				</p>
-				<p>
-					<font color="#FF0000">商城价：&yen;${product.iPrice}</font>
-				</p>
-			</div>
+				<div class="col-md-2">
+					<a href="product_info.jsp?id=${product.id}">
+						<img src="${product.pImage}" alt="${product.pName}"	width="170" height="170" style="display: inline-block;">
+					</a>
+					<p>
+						<a href="product_info.jsp?id=${product.id}" style='color:green'>${product.pName}</a>
+					</p>
+					<p>
+						<font color="#FF0000">商城价：&yen;${product.iPrice}</font>
+					</p>
+				</div>
 			</c:forEach>
 		</div>
 

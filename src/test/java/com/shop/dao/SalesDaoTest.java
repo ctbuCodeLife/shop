@@ -36,11 +36,13 @@ public void testInsert() throws Exception {
     sales.setcId(10005);
     sales.setpId(10001);
     sales.setCount(2);
-    BigDecimal unitPrice = new BigDecimal(999.00);
-
-    BigDecimal totalPrice ;
-    totalPrice = unitPrice.multiply(new BigDecimal(2));
-    System.out.println(totalPrice);
+//    BigDecimal unitPrice = new BigDecimal(999.01);
+//    BigDecimal totalPrice ;
+//    totalPrice = unitPrice.multiply(new BigDecimal(2));
+//    System.out.println(totalPrice);
+    double unitPrice = 999.00;
+    int count = 2;
+    double totalPrice = unitPrice * count;
     sales.setTotalPrice(totalPrice);
     //插入到sales表
     SalesDao sd = new SalesDao();

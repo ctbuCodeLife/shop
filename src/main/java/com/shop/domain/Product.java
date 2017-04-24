@@ -1,6 +1,5 @@
 package com.shop.domain;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 public class Product {
@@ -12,8 +11,8 @@ public class Product {
     private int pKeepTime;
     private String pImage;
     private int kId;
-    private BigDecimal iPrice;
-    private BigDecimal mPrice;
+    private int iPrice;
+    private int mPrice;
     private String isHot;
     private String isShow;
 	@Override
@@ -64,16 +63,16 @@ public class Product {
 	public void setkId(int kId) {
 		this.kId = kId;
 	}
-	public BigDecimal getiPrice() {
+	public int getiPrice() {
 		return iPrice;
 	}
-	public void setiPrice(BigDecimal iPrice) {
+	public void setiPrice(int iPrice) {
 		this.iPrice = iPrice;
 	}
-	public BigDecimal getmPrice() {
+	public int getmPrice() {
 		return mPrice;
 	}
-	public void setmPrice(BigDecimal mPrice) {
+	public void setmPrice(int mPrice) {
 		this.mPrice = mPrice;
 	}
 	public String getIsHot() {

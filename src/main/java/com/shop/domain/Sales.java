@@ -1,6 +1,5 @@
 package com.shop.domain;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
 public class Sales {
@@ -8,7 +7,7 @@ public class Sales {
     private int cId;
     private int pId;
     private int count;
-    private BigDecimal totalPrice;
+    private int totalPrice;
     private Timestamp orderDate;
     private String invoiceNo;
     private String orderStatus;
@@ -37,10 +36,10 @@ public class Sales {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public BigDecimal getTotalPrice() {
+	public int getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(BigDecimal totalPrice) {
+	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	public Date getOrderDate() {

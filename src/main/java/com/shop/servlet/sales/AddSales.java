@@ -65,11 +65,14 @@ public class AddSales extends HttpServlet {
                     }
 
                     //查询到商品后计算价格
-                    BigDecimal totalPrice;
-                    BigDecimal unitPrice;//商品单价
-                    unitPrice = product.getiPrice();
-                    totalPrice = unitPrice.multiply(new BigDecimal(Integer.valueOf(count)));
-                    System.out.println(totalPrice);
+//                    BigDecimal totalPrice;
+//                    BigDecimal unitPrice;//商品单价
+//                    unitPrice = product.getiPrice();
+//                    totalPrice = unitPrice.multiply(new BigDecimal(Integer.valueOf(count)));
+//                    System.out.println(totalPrice);
+                    double totalPrice = 0.0;
+                    double unitPrice = product.getiPrice();
+                    totalPrice = unitPrice * count;
                     Timestamp orderDate = new Timestamp(System.currentTimeMillis());//下单时间
                     String invoiceNO = String.valueOf(System.currentTimeMillis());//订单流水号
                     String orderStatus = "已提交";//订单状态
