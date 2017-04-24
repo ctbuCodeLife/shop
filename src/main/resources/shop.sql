@@ -542,7 +542,7 @@ CREATE TABLE sales (
 	`cId` INT NOT NULL,
 	`pId` INT NOT NULL,
 	`count` INT NULL,
-	`totalPrice` NUMERIC (7, 2) NULL UNIQUE,
+	`totalPrice` NUMERIC (12, 4) NULL UNIQUE,
 	`orderDate` DATETIME NULL,
 	`invoiceNo` CHAR (15) NULL,
 	`orderStatus` VARCHAR (10) NULL,

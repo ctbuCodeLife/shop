@@ -1,6 +1,7 @@
 package com.shop.dao;
 
 import com.shop.domain.Sales;
+import com.shop.domain.Sales;
 import com.shop.utils.DBUtil;
 
 import java.sql.ResultSet;
@@ -67,7 +68,7 @@ public class SalesDao extends DBUtil {
      * @return
      */
     public boolean update(Sales sales) {
-        String sql = "update  set cId=?,pId=?,count=?,totalPrice=?,orderDate=?,invoiceNo=?,orderStaus=?,delivDate where id=?";
+        String sql = "update  set cId=?,pId=?,count=?,totalPrice=?,orderDate=?,invoiceNo=?,orderStatus=?,delivDate where id=?";
         Object[] params = {
                 sales.getcId(),
                 sales.getpId(),
@@ -134,6 +135,44 @@ public class SalesDao extends DBUtil {
         }
         return null;
     }
+    /**
+     * 查找用户所有订单
+     *
+     * @return
+     */
+    public ArrayList<Sales> findShow(int cid) {
+        String sql = "select cId,pId,count,totalPrice,orderDate,invoiceNo,orderStatus,delivDate from sales where cid = ? order by id";
+        ArrayList<Sales> list = new ArrayList<Sales>();
+        Object[] params = {cid};
+        try {
+            this.rs = this.doQuery(sql, params);
+            while (rs.next()) {
+                Sales sales = new Sales();
+                sales.setId(cid);
+                sales.setcId(rs.getInt(1));
+                sales.setpId(rs.getInt(2));
+                sales.setCount(rs.getInt(3));
+                sales.setTotalPrice(rs.getBigDecimal(4));
+                sales.setOrderDate(rs.getTimestamp(5));
+                sales.setInvoiceNo(rs.getString(6));
+                sales.setOrderStatus(rs.getString(7));
+                sales.setDelivDate(rs.getTimestamp(8));
+                list.add( getSales(rs));
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.close();
+        }
+        return null;
+    }
+
+    /**
+     * 从返回结果集中获取订单
+     * @param rs
+     * @return
+     */
     public Sales getSales(ResultSet rs) {
         try{
             if(rs != null) {

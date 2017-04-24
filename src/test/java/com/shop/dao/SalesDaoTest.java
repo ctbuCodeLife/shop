@@ -6,7 +6,9 @@ import org.junit.Before;
 import org.junit.After;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 
@@ -34,11 +36,11 @@ public void testInsert() throws Exception {
     sales.setcId(10005);
     sales.setpId(10001);
     sales.setCount(2);
-    BigDecimal unitPrice = new BigDecimal(999.10);
+    BigDecimal unitPrice = new BigDecimal(999.00);
 
     BigDecimal totalPrice ;
-    totalPrice = unitPrice.multiply(new BigDecimal(Integer.valueOf(2)));
-    System.out.println(999.10*2);
+    totalPrice = unitPrice.multiply(new BigDecimal(2));
+    System.out.println(totalPrice);
     sales.setTotalPrice(totalPrice);
     //插入到sales表
     SalesDao sd = new SalesDao();
@@ -96,5 +98,15 @@ public void testGetSales() throws Exception {
 //TODO: Test goes here... 
 } 
 
-
-} 
+@Test
+public void testFindShow() {
+    int cid = 10006;
+    SalesDao sd = new SalesDao();
+    List<Sales> list = sd.findShow(cid);
+    System.out.println(list);
+    for (Sales s : list) {
+        System.out.println(s.toString());
+    }
+    assertNotNull(list);
+}
+}
