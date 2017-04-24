@@ -24,13 +24,10 @@
 		<div class="container">
 			<div class="row">
 
-				<div style="margin:0 auto;margin-top:10px;width:950px;">
+				<div style="margin:0 auto;margin-top:10px;width:1150px;">
 					<strong>订单详情</strong>
 					<table class="table table-bordered">
 						<tbody>
-							<tr class="warning">
-								<th colspan="5">订单编号:9005</th>
-							</tr>
 							<tr class="warning">
 								<th>图片</th>
 								<th>商品</th>
@@ -38,22 +35,20 @@
 								<th>数量</th>
 								<th>小计</th>
 							</tr>
-							<tr class="active">
-								<td width="60" width="40%"><input type="hidden" name="id"
-									value="22"> <img src="./image/dadonggua.jpg" width="70"
-									height="60"></td>
-								<td width="30%"><a target="_blank"> 有机蔬菜 大冬瓜...</a></td>
-								<td width="20%">￥298.00</td>
-								<td width="10%">5</td>
-								<td width="15%"><span class="subtotal">￥596.00</span></td>
-							</tr>
+                            <tr class="active">
+                                <td width="40%">
+                                    <input type="hidden" name="id" value="22">
+                                    <img src="${sessionScope.product.pImage}" alt="${sessionScope.product.pName}" width="70"
+                                         height="60"></td>
+                                <td width="20%"><a target="_blank"> ${sessionScope.product.pName}</a></td>
+                                <td width="10%">￥${sessionScope.product.iPrice}</td>
+                                <td width="10%">${sessionScope.cart.count}</td>
+                                <td width="10%"><span class="subtotal">￥${sessionScope.cart.totolPrice}元</span></td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>
 
-				<div style="text-align:right;margin-right:120px;">
-					商品金额: <strong style="color:#ff6600;">￥596.00元</strong>
-				</div>
 
 			</div>
 
@@ -71,29 +66,24 @@
 					<div class="form-group">
 						<label for="inputPassword3" class="col-sm-1 control-label">收货人</label>
 						<div class="col-sm-5">
-							<input type="password" class="form-control" id="inputPassword3"
+							<input type="text" class="form-control" id="inputPassword3"
 								placeholder="请输收货人">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="confirmpwd" class="col-sm-1 control-label">电话</label>
 						<div class="col-sm-5">
-							<input type="password" class="form-control" id="confirmpwd"
+							<input type="text" class="form-control" id="confirmpwd"
 								placeholder="请输入联系方式">
 						</div>
 					</div>
 				</form>
 
 				<hr />
-
 				<div style="margin-top:5px;margin-left:150px;">
 					<hr />
 					<p style="text-align:right;margin-right:100px;">
-						<a
-							href="javascript:document.getElementById('orderForm').submit();">
-							<img src="./images/finalbutton.gif" width="204" height="51"
-							border="0" />
-						</a>
+                        <a class="btn btn-danger btn-height-auto-center " href="AddSales?pid=${sessionScope.product.id}&count=${sessionScope.cart.count}">确认支付</a>
 					</p>
 					<hr />
 				</div>

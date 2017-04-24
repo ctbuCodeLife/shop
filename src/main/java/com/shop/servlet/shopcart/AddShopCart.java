@@ -56,8 +56,8 @@ public class AddShopCart extends HttpServlet {
                     //计算总价
 //                    BigDecimal totolPrice;
 //                    BigDecimal unitPrice;//商品单价
-                    Double totolPrice = 0.0;
-                    Double unitPrice = 0.0;
+                    int totolPrice = 0;
+                    int unitPrice = 0;
                     ProductDao pd = new ProductDao();
                     Product p = new Product();
                     p = pd.find(pId);

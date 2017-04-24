@@ -126,8 +126,8 @@ public class ProductDao extends DBUtil {
 				p.setpKeepTime(rs.getInt(6));
 				p.setpImage(rs.getString(7));
 				p.setkId(rs.getInt(8));
-				p.setiPrice(rs.getDouble(9));
-				p.setmPrice(rs.getDouble(10));
+				p.setiPrice(rs.getInt(9));
+				p.setmPrice(rs.getInt(10));
 				p.setIsHot(rs.getString(11));
 				p.setIsShow(rs.getString(12));
 				return p;
@@ -161,8 +161,8 @@ public class ProductDao extends DBUtil {
 				p.setpKeepTime(rs.getInt(6));
 				p.setpImage(rs.getString(7));
 				p.setkId(rs.getInt(8));
-				p.setiPrice(rs.getDouble(9));
-				p.setmPrice(rs.getDouble(10));
+				p.setiPrice(rs.getInt(9));
+				p.setmPrice(rs.getInt(10));
 				p.setIsHot(rs.getString(11));
 				p.setIsShow(rs.getString(12));
 				return p;
@@ -195,8 +195,8 @@ public class ProductDao extends DBUtil {
 				p.setpKeepTime(rs.getInt(6));
 				p.setpImage(rs.getString(7));
 				p.setkId(rs.getInt(8));
-				p.setiPrice(rs.getDouble(9));
-				p.setmPrice(rs.getDouble(10));
+				p.setiPrice(rs.getInt(9));
+				p.setmPrice(rs.getInt(10));
 				p.setIsHot(rs.getString(11));
 				p.setIsShow(rs.getString(12));
 				list.add(p);
@@ -230,8 +230,8 @@ public class ProductDao extends DBUtil {
 				p.setpKeepTime(rs.getInt(6));
 				p.setpImage(rs.getString(7));
 				p.setkId(rs.getInt(8));
-				p.setiPrice(rs.getDouble(9));
-				p.setmPrice(rs.getDouble(10));
+				p.setiPrice(rs.getInt(9));
+				p.setmPrice(rs.getInt(10));
 				p.setIsHot(rs.getString(11));
 				p.setIsShow(rs.getString(12));
 				list.add(p);
@@ -265,8 +265,8 @@ public class ProductDao extends DBUtil {
 				p.setpKeepTime(rs.getInt(6));
 				p.setpImage(rs.getString(7));
 				p.setkId(rs.getInt(8));
-				p.setiPrice(rs.getDouble(9));
-				p.setmPrice(rs.getDouble(10));
+				p.setiPrice(rs.getInt(9));
+				p.setmPrice(rs.getInt(10));
 				p.setIsHot(rs.getString(11));
 				p.setIsShow(rs.getString(12));
 				list.add(p);
@@ -314,8 +314,8 @@ public class ProductDao extends DBUtil {
 			p.setpKeepTime(rs.getInt(6));
 			p.setpImage(rs.getString(7));
 			p.setkId(rs.getInt(8));
-			p.setiPrice(rs.getDouble(9));
-			p.setmPrice(rs.getDouble(10));
+			p.setiPrice(rs.getInt(9));
+			p.setmPrice(rs.getInt(10));
 			p.setIsHot(rs.getString(11));
 			p.setIsShow(rs.getString(12));
 			return p;

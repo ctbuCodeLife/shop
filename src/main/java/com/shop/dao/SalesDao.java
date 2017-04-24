@@ -114,6 +114,27 @@ public class SalesDao extends DBUtil {
         return null;
     }
     /**
+     * 按照cip,pid查找订单
+     *
+     * @param
+     * @return
+     */
+    public Sales find(int cid,int pid) {
+        String sql = "select * from sales where id = ? and pid =?";
+        Object[] params = {cid,pid};
+        try {
+            this.rs = this.doQuery(sql);
+            if (rs.next()) {
+                return getSales(rs);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.close();
+        }
+        return null;
+    }
+    /**
      * 查找某用户id的所有购物车
      *
      * @return
@@ -152,7 +173,7 @@ public class SalesDao extends DBUtil {
                 sales.setcId(rs.getInt(1));
                 sales.setpId(rs.getInt(2));
                 sales.setCount(rs.getInt(3));
-                sales.setTotalPrice(rs.getDouble(4));
+                sales.setTotalPrice(rs.getInt(4));
                 sales.setOrderDate(rs.getTimestamp(5));
                 sales.setInvoiceNo(rs.getString(6));
                 sales.setOrderStatus(rs.getString(7));
@@ -180,7 +201,7 @@ public class SalesDao extends DBUtil {
                 sales.setcId(rs.getInt(1));
                 sales.setpId(rs.getInt(2));
                 sales.setCount(rs.getInt(3));
-                sales.setTotalPrice(rs.getDouble(4));
+                sales.setTotalPrice(rs.getInt(4));
                 sales.setOrderDate(rs.getTimestamp(5));
                 sales.setInvoiceNo(rs.getString(6));
                 sales.setOrderStatus(rs.getString(7));

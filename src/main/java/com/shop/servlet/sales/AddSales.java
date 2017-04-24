@@ -63,15 +63,9 @@ public class AddSales extends HttpServlet {
                         msg = "没有该商品信息,3秒后自动跳转到首页.";
                         autoReturnPage = "index.jsp";
                     }
-
-                    //查询到商品后计算价格
-//                    BigDecimal totalPrice;
-//                    BigDecimal unitPrice;//商品单价
-//                    unitPrice = product.getiPrice();
-//                    totalPrice = unitPrice.multiply(new BigDecimal(Integer.valueOf(count)));
-//                    System.out.println(totalPrice);
-                    double totalPrice = 0.0;
-                    double unitPrice = product.getiPrice();
+                    
+                    int totalPrice = 0;
+                    int unitPrice = product.getiPrice();
                     totalPrice = unitPrice * count;
                     Timestamp orderDate = new Timestamp(System.currentTimeMillis());//下单时间
                     String invoiceNO = String.valueOf(System.currentTimeMillis());//订单流水号
@@ -93,6 +87,7 @@ public class AddSales extends HttpServlet {
                     if(result == true){
                         //插入成功,要删除购物车
                         msg = "下单成功,3秒后自动跳转到订单页面.";
+
                         autoReturnPage = "order_info.jsp";
                         //查找购物车
                         ShopCartDao scd = new ShopCartDao();

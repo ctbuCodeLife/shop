@@ -40,9 +40,9 @@ public void testInsert() throws Exception {
 //    BigDecimal totalPrice ;
 //    totalPrice = unitPrice.multiply(new BigDecimal(2));
 //    System.out.println(totalPrice);
-    double unitPrice = 999.00;
+    int unitPrice = 999;
     int count = 2;
-    double totalPrice = unitPrice * count;
+    int totalPrice = unitPrice * count;
     sales.setTotalPrice(totalPrice);
     //插入到sales表
     SalesDao sd = new SalesDao();
